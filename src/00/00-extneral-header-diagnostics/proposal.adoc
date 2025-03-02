@@ -1,0 +1,79 @@
+[#proposal-template]
+= Proposal Template
+:rfcpr: 0
+:stdpr: 0
+:authors: Harald Achitz
+:email: harald.achitz@gmail.com
+:copyright: Copyright {authors}
+:license: Creative Commons Attribution 4.0 International License (CC BY 4.0)
+:nofooter:
+:reproducible:
+:revdate: {docdate}
+:sectanchors:
+:sectnumlevels: 10
+:sectnums:
+:source-highlighter: rouge
+:toc-title: Contents
+:toc:
+:toclevels: 5
+:version-label!:
+
+
+* *RFC PR*: https://github.com/ecostd/rfcs/pull/{rfcpr}[ecostd/rfcs/{rfcpr}]
+* *Standard PR*: https://github.com/ecostd/standard/pull/{stdpr}[ecostd/standard/{stdpr}]
+
+[#abstract]
+== Abstract
+
+This proposal suggests a compiler option to specify include directories for extneral header to control warnings diagonstics of those headers differenlty than for project and system headers
+
+External headers shall be treated differently from project headers.
+Warnings from these headers shall be suppressed, while warnings from project headers shall be shown as usual.
+
+[#motivation]
+== Motivation
+
+Today there is no standard way of specifying external header directories.
+
+On Clang and GCC, the `-isystem` flag is used, and on MSVC the `external` framework.
+Those work slightly different.
+
+* https://gcc.gnu.org/onlinedocs/cpp/System-Headers.html
+* https://gcc.gnu.org/onlinedocs/gcc/Directory-Options.html
+* https://devblogs.microsoft.com/cppblog/broken-warnings-theory/
+* https://learn.microsoft.com/en-us/cpp/build/reference/external-external-headers-diagnostics
+
+On GCC/clang `isystem` searchorder might be problematic. (TODO, more problems?)
+
+MSVC's External headers diagnostics switch is more powerfull,
+and streamlinging this or a similar behavior (TBD) for all compilers seems to be benefitial
+
+Finding the common definition shall be a goal during the creation of this paper.
+
+[#scope]
+== Scope
+
+Only warnings, tuning, or just on / off. TBD
+
+[#design]
+== Design
+
+TBD
+
+[#prior-art]
+== Prior Art
+
+TBD
+
+[#considerations]
+== Considerations
+
+TBD
+
+[#license]
+== License
+
+This work is licensed under the Creative Commons Attribution 4.0 International
+License. To view a copy of this license, visit
+http://creativecommons.org/licenses/by/4.0/ or send a letter to Creative
+Commons, PO Box 1866, Mountain View, CA 94042, USA.
